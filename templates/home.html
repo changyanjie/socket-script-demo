@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>脚本查询工具</title>
+    <!--<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap-datetimepicker.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap-datepicker.min.css"/>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.js"></script>
+    <![endif]-->
+    <style>
+        body{background-color: #f7f7f9}
+        .small {font-size: 75%;}
+        #main {margin-top: 20px;}
+        #result td{white-space: nowrap;}
+        #database {width:150px;display:inline-block;}
+        /*.table th, .table td { text-align: center; vertical-align: middle!important; }*/
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">查询工具</a>
+        </div>
+        <div>
+            <ul id="myTabs" class="nav navbar-nav" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#rule" role="tab" data-toggle="tab" aria-controls="rule"
+                       aria-expanded="true">主承运商</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div id="myTabContent" class="tab-content">
+        <div role="tabpanel" class="tab-pane fade active in" id="rule" aria-labelledby="rule-tab">
+            <p>
+                商户ID:<input type="text" id="agent_retailer_id" name="retailer_id">
+                <input type="button" id="agent_retailer" value="查询">
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div id="result" class="table-responsive"></div>
+</div>
+<script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/socket.io.min.js"></script>
+<script type="text/javascript" src="/static/js/script_socket.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap-datepicker.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.start_time').datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+        $('.end_time').datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+        $('.start_date').datepicker({format: 'yyyy-mm-dd'});
+        var now = new Date();
+        $('.start_date').val(now.getFullYear() + '-' + (now.getUTCMonth() + 1) + '-' + now.getUTCDate());
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+requests
+arrow
+six
+retrying
+prettytable
+xlsxwriter
+diskcache
+unicodecsv
+flask_socketio
+gevent
